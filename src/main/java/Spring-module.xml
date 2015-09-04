@@ -16,14 +16,10 @@
 		<property name="password" value="root" />
 	</bean>
 	
-	<bean id="jdbctemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="datasource"></property>
-	</bean>
 
-	<bean id="listItemsDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	<bean id="listItemsDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl"> 
 	</bean>
-	<bean id="productDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
+	<!-- <bean id="productDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
 		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
 	</bean>
 	<bean id="productionSubscriptionImpl" class="com.sd.daoimpl.listItemsDaoImpl">
@@ -31,9 +27,9 @@
 	</bean>
 	<bean id="userDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
 		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
-	</bean>
-	<bean id="shoppingDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	</bean> -->
+	 <bean id="shoppingDaoImpl" class="com.sd.daoimpl.ShoppingListDaoImpl">
+		<property name="dataSource" ref="datasource"></property> 
 	</bean>
 	
 </beans>
