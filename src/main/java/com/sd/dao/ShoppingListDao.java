@@ -6,8 +6,9 @@ import com.sd.pojo.Shoppinglist;
 
 public interface ShoppingListDao {
 
-	public boolean addList(Shoppinglist list);
-	public ArrayList<Shoppinglist> getList(int id);
-	public boolean deleteList(int id);
+	public int addList(Shoppinglist list);
+	public ArrayList<Shoppinglist> getLists();
+	public Shoppinglist getList(int id);
+	public int deleteList(int id);
 	
 }
