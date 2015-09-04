@@ -1,12 +1,12 @@
 package com.sd.controller;
 
 
-import java.util.ArrayList;
+import java.text.ParseException;import java.util.ArrayList;
 import java.util.Date;
 
-import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sd.dao.ProductSubscriptionDao;
+import com.sd.daoimpl.ProductSubscriptionDaoImpl;
 import com.sd.pojo.Product_subscriptions;
 
 
@@ -86,14 +87,27 @@ public class ProductSubscriptionController {
 	public ModelAndView deleteSubscription(HttpServletRequest request,
 			HttpServletResponse response,ModelMap map) {
 		ModelAndView mv=new ModelAndView();
-		int uid=Integer.parseInt(request.getParameter("uid"));
-		productionSubscriptionImpl.deleteSubscription(uid);
+		int id=Integer.parseInt(request.getParameter("id"));
+		productionSubscriptionImpl.deleteSubscription(id);
 		mv.setViewName("deleteSubscription");
 		return mv;
 	}
 	
 	
-	
+	@RequestMapping("/instantRefill")
+	public ModelAndView onRefill(HttpServletRequest request,HttpServletResponse response,ModelMap map) throws ParseException{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("payments");
+		HttpSession session = request.getSession(false);
+		int uid = (Integer) session.getAttribute("uid");
+		int pid = (Integer) session.getAttribute("pid");
+		
+		ApplicationContext d = new ClassPathXmlApplicationContext("Spring-module.xml");
+		ProductSubscriptionDaoImpl productionSubscriptionImpl;
+		productionSubscriptionImpl =(ProductSubscriptionDaoImpl) d.getBean("productionSubscriptionImpl");
+		productionSubscriptionImpl.onClickRefill(uid, pid);
+		return mv;
+	}
 	
 	
     
