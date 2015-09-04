@@ -65,9 +65,10 @@ public class ProductSubscriptionDaoImpl implements ProductSubscriptionDao{
 
 	public ArrayList<Product_subscriptions> getSubscription(int uid) {
 		// TODO Auto-generated method stub
-		String sql="select * from Product_subscriptions where uid="+ uid;
+		String sql="select * from product_subscriptions where uid="+ uid;
 		ArrayList<Product_subscriptions> prodList  = (ArrayList<Product_subscriptions>) jdbctemplate.query(sql,
 				new BeanPropertyRowMapper<Product_subscriptions>(Product_subscriptions.class));
+		System.out.println(prodList.size());
 		return prodList;
 	}
 
@@ -90,7 +91,7 @@ public class ProductSubscriptionDaoImpl implements ProductSubscriptionDao{
 
 	public boolean deleteSubscription(int id) {
 		// TODO Auto-generated method stub
-		String sql="delete from product_subscriptions where id" + id;
+		String sql="delete from product_subscriptions where id =" + id;
 		jdbctemplate.update(sql);
 		return false;
 	}

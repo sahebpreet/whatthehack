@@ -1,7 +1,9 @@
 package com.sd.controller;
 
 
-import java.text.ParseException;import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,16 +38,21 @@ public class ProductSubscriptionController {
 	public ModelAndView addSubscription(HttpServletRequest request,
 			HttpServletResponse response,ModelMap map) throws Exception {
 		Product_subscriptions subscription = new Product_subscriptions();
+		System.out.println("hey !!");
 		subscription.setDuration(Integer.parseInt(request.getParameter("duration")));
-		subscription.setLast_delivery_date(request.getParameter("date"));
-		subscription.setPid(Integer.parseInt(request.getParameter("pid")));
+		Date date=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("YYYY-MM-DD");
+		String sdate=sdf.format(date);
+		subscription.setDuration(Integer.parseInt(request.getParameter("duration")));
+		subscription.setLast_delivery_date(sdate);
+		subscription.setPid(1);
 		subscription.setQuantity(Integer.parseInt(request.getParameter("quantity")));
-		subscription.setSubscription_date(new Date().toString());
-		subscription.setUid(Integer.parseInt(request.getParameter("uid")));
-		
-		productionSubscriptionImpl.addSubscription(subscription);
+		subscription.setSubscription_date(sdate);
+		subscription.setUid(1);
+		System.out.println("hey");
+				productionSubscriptionImpl.addSubscription(subscription);
 		ModelAndView mv= new ModelAndView();
-		mv.setViewName("subscribe");
+		mv.setViewName("Product");
 		return mv;
 	}
 	
@@ -63,24 +70,7 @@ public class ProductSubscriptionController {
 		return mv;
 	}
 	
-	@RequestMapping("/editSubscription")
-	public ModelAndView editSubscription(HttpServletRequest request,
-			HttpServletResponse response,ModelMap map) {
-		ModelAndView mv=new ModelAndView();
-		
-		Product_subscriptions subscription = new Product_subscriptions();
-		subscription.setDuration(Integer.parseInt(request.getParameter("duration")));
-		subscription.setLast_delivery_date(request.getParameter("date"));
-		subscription.setPid(Integer.parseInt(request.getParameter("pid")));
-		subscription.setQuantity(Integer.parseInt(request.getParameter("quantity")));
-		subscription.setSubscription_date(new Date().toString());
-		subscription.setUid(Integer.parseInt(request.getParameter("uid")));
-		
-		productionSubscriptionImpl.editSubscription(subscription);
-		
-		mv.setViewName("editSubscription");
-		return mv;
-	}
+	
 	
 	
 	@RequestMapping("/deleteSubscription")
