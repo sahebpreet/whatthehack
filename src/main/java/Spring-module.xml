@@ -24,7 +24,7 @@
 	<bean id="productDaoImpl" class="com.sd.daoimpl.ProductDaoImpl">
 		<property name="dataSource" ref="datasource"></property> 
 	</bean>
-	<bean id="productionSubscriptionImpl" class="com.sd.daoimpl.ProductionSubscriptionDaoImpl">
+	<bean id="productionSubscriptionImpl" class="com.sd.daoimpl.ProductSubscriptionDaoImpl">
 		<property name="dataSource" ref="datasource"></property> 
 	</bean>
 	<bean id="userDaoImpl" class="com.sd.daoimpl.UserDaoImpl">

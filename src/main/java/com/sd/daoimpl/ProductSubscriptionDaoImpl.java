@@ -1,15 +1,12 @@
 package com.sd.daoimpl;
 
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -19,14 +16,15 @@ import com.sd.pojo.Product_subscriptions;
 public class ProductSubscriptionDaoImpl implements ProductSubscriptionDao{
     DataSource dataSource;
 	JdbcTemplate jdbctemplate;
-	
-	public DataSource getDatasource() {
+
+
+	public DataSource getDataSource() {
 		return dataSource;
 	}
 
-	public void setDatasource(DataSource datasource) {
-		this.dataSource = datasource;
-		this.jdbctemplate=new JdbcTemplate(datasource);
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.jdbctemplate=new JdbcTemplate(dataSource);
 	}
 
 	public JdbcTemplate getJdbctemplate() {

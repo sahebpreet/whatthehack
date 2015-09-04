@@ -6,7 +6,7 @@ public class Shoppinglist {
 
 	private int id;
 	private String name;
-	private Date createddate;
+	private String createddate;
 	private int uid;
 
 	public int getId() {
@@ -24,12 +24,11 @@ public class Shoppinglist {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public Date getCreateddate() {
+	public String getCreateddate() {
 		return createddate;
 	}
 
-	public void setCreateddate(Date createddate) {
+	public void setCreateddate(String createddate) {
 		this.createddate = createddate;
 	}
 
