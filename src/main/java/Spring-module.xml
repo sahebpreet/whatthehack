@@ -20,20 +20,21 @@
         <property name="dataSource" ref="datasource"></property>
     </bean>
 
-    <bean id="listItemsDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-        <property name="jdbcTemplate" ref="jdbctemplate"></property>
-    </bean>
-    <bean id="productDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-        <property name="jdbcTemplate" ref="jdbctemplate"></property>
-    </bean>
-    <bean id="productionSubscriptionImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-        <property name="jdbcTemplate" ref="jdbctemplate"></property>
-    </bean>
-    <bean id="userDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-        <property name="jdbcTemplate" ref="jdbctemplate"></property>
-    </bean>
-    <bean id="shoppingDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-        <property name="jdbcTemplate" ref="jdbctemplate"></property>
-    </bean>
 
+	<bean id="listItemsDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
+		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	</bean>
+	<bean id="productDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
+		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	</bean>
+	<bean id="productionSubscriptionImpl" class="com.sd.daoimpl.listItemsDaoImpl">
+		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	</bean>
+	<bean id="userDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
+		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	</bean>
+	<bean id="shoppingDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
+		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	</bean>
+	
 </beans>
