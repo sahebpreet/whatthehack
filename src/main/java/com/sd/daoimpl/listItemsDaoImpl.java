@@ -3,6 +3,8 @@ package com.sd.daoimpl;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,9 +14,28 @@ import com.sd.pojo.Product;
 import com.sd.pojo.Shoppinglist;
 
 public class listItemsDaoImpl  implements listItemsDao {
+
 	
-	@Autowired
 	JdbcTemplate jdbcTemplate;
+	DataSource dataSource;
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.jdbcTemplate=new JdbcTemplate(dataSource);
+	}
+
+
 
 	public List<Product> getListItems(Shoppinglist list) {
 		String query = "select * from product join listitems on product.id=listitems.pid where list_id=?";

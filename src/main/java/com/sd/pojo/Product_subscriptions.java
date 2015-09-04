@@ -1,16 +1,43 @@
 package com.sd.pojo;
 
-import java.util.Date;
 
 public class Product_subscriptions {
 
 	private int id;
 	private int uid;
 	private int pid;
-	private int interval;
-	private Date last_delivery_date;
-	private Date subscription_date;
+	private int duration;
+	private String last_delivery_date;
+	private String next_delivery_date;
+	private String subscription_date;
 	private int quantity;
+	
+	public String getNext_delivery_date() {
+		return next_delivery_date;
+	}
+
+	public void setNext_delivery_date(String next_delivery_date) {
+		this.next_delivery_date = next_delivery_date;
+	}
+
+	public String getSubscription_date() {
+		return subscription_date;
+	}
+
+	public void setSubscription_date(String subscription_date) {
+		this.subscription_date = subscription_date;
+	}
+
+	
+	public String getLast_delivery_date() {
+		return last_delivery_date;
+	}
+
+	public void setLast_delivery_date(String last_delivery_date) {
+		this.last_delivery_date = last_delivery_date;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -36,28 +63,12 @@ public class Product_subscriptions {
 		this.pid = pid;
 	}
 
-	public int getInterval() {
-		return interval;
+	public int getDuration() {
+		return duration;
 	}
 
-	public void setInterval(int interval) {
-		this.interval = interval;
-	}
-
-	public Date getLast_delivery_date() {
-		return last_delivery_date;
-	}
-
-	public void setLast_delivery_date(Date last_delivery_date) {
-		this.last_delivery_date = last_delivery_date;
-	}
-
-	public Date getSubscription_date() {
-		return subscription_date;
-	}
-
-	public void setSubscription_date(Date subscription_date) {
-		this.subscription_date = subscription_date;
+	public void setDuration(int interval) {
+		this.duration = interval;
 	}
 
 	public int getQuantity() {

@@ -15,19 +15,21 @@
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
-	
+
 
 	<bean id="listItemsDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl"> 
+		<property name="dataSource" ref="datasource"></property> 
 	</bean>
-	<!-- <bean id="productDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	
+	<bean id="productDaoImpl" class="com.sd.daoimpl.ProductDaoImpl">
+		<property name="dataSource" ref="datasource"></property> 
 	</bean>
-	<bean id="productionSubscriptionImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
+	<bean id="productionSubscriptionImpl" class="com.sd.daoimpl.ProductionSubscriptionDaoImpl">
+		<property name="dataSource" ref="datasource"></property> 
 	</bean>
-	<bean id="userDaoImpl" class="com.sd.daoimpl.listItemsDaoImpl">
-		<property name="jdbcTemplate" ref="jdbctemplate"></property> 
-	</bean> -->
+	<bean id="userDaoImpl" class="com.sd.daoimpl.UserDaoImpl">
+		<property name="dataSource" ref="datasource"></property> 
+	</bean> 
 	 <bean id="shoppingDaoImpl" class="com.sd.daoimpl.ShoppingListDaoImpl">
 		<property name="dataSource" ref="datasource"></property> 
 	</bean>

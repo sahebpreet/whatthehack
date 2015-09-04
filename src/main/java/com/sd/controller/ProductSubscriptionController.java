@@ -1,21 +1,23 @@
 package com.sd.controller;
 
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
-import com.sd.dao.ShoppingListDao;
+
+import com.sd.dao.ProductSubscriptionDao;
 
 
 @Controller
-public class ShoppingListControllers {
+public class ProductSubscriptionController {
    
-    ShoppingListDao shoppingDaoImpl;
+	ProductSubscriptionDao productionSubscriptionImpl;
    
-    public ShoppingListControllers() {
+    public ProductSubscriptionController() {
         System.out.println("In controller");
         ApplicationContext d = new ClassPathXmlApplicationContext("Spring-module.xml");
-        shoppingDaoImpl =(ShoppingListDao) d.getBean("shoppingDaoImpl");
+        productionSubscriptionImpl =(ProductSubscriptionDao) d.getBean("productionSubscriptionImpl");
     }
       
 }

@@ -1,21 +1,22 @@
 package com.sd.controller;
 
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
-import com.sd.dao.ShoppingListDao;
+import com.sd.dao.ProductDao;
 
 
 @Controller
-public class ShoppingListControllers {
+public class ProductController {
    
-    ShoppingListDao shoppingDaoImpl;
+    ProductDao productDaoImpl;
    
-    public ShoppingListControllers() {
+    public ProductController() {
         System.out.println("In controller");
         ApplicationContext d = new ClassPathXmlApplicationContext("Spring-module.xml");
-        shoppingDaoImpl =(ShoppingListDao) d.getBean("shoppingDaoImpl");
+        productDaoImpl =(ProductDao) d.getBean("productDaoImpl");
     }
       
 }
