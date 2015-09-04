@@ -40,4 +40,9 @@ public class Shoppinglist {
 		this.uid = uid;
 	}
 
+	@Override
+	public String toString() {
+		return "Shoppinglist [id=" + id + ", name=" + name + ", createddate=" + createddate + ", uid=" + uid + "]";
+	}
+
 }

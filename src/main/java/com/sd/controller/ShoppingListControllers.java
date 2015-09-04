@@ -1,6 +1,5 @@
 package com.sd.controller;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,6 +33,7 @@ public class ShoppingListControllers {
 		int id  =Integer.parseInt( req.getParameter("id"));
 		System.out.println("Id in get list of controller is  "+id);
 		Shoppinglist sl=shoppingDaoImpl.getList(id);
+		System.out.println(sl);
 		HttpSession session = req.getSession();
 		session.setAttribute("ShoppingList", sl);
 	
@@ -47,11 +47,11 @@ public class ShoppingListControllers {
 		
 		
 		ArrayList<Shoppinglist> arr=shoppingDaoImpl.getLists();
+		for(Shoppinglist sl:arr){
+			System.out.println(sl);
+		}
 		HttpSession session = req.getSession();
 		session.setAttribute("ShoppingLists", arr);
-		
-		
-		
 		return null;
 	}
 	@RequestMapping(value="/addList")

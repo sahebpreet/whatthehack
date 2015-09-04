@@ -49,7 +49,8 @@ public class ShoppingListDaoImpl implements ShoppingListDao{
 	public Shoppinglist getList(int id) {
 		
 		String query="Select * from shoppinglist where id="+id;
-		Shoppinglist sl=(Shoppinglist) jdbcTemplate.query(query, new BeanPropertyRowMapper<Shoppinglist>(Shoppinglist.class));
+		System.out.println(query);
+		Shoppinglist sl=(Shoppinglist) jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<Shoppinglist>(Shoppinglist.class));
 		return sl;
 	}
 

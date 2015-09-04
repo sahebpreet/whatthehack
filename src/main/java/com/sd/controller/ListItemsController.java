@@ -37,12 +37,14 @@ public class ListItemsController {
 		List<Product> products=listItemDaoImpl.getListItems(list);
 		HttpSession s=req.getSession();
 		s.setAttribute("productList", products);
-	
+		for(Product p:products){
+			System.out.println(p);
+		}
 		return "test";
 		
 	}
 	
-	@RequestMapping(value="/addItems")
+	@RequestMapping(value="/addItem")
 	public String addItem(HttpServletRequest req, ModelMap m){
 		
 		int lid =Integer.parseInt(req.getParameter("lid"));
